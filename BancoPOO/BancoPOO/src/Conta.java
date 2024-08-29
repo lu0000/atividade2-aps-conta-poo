@@ -1,6 +1,9 @@
 import javax.swing.JOptionPane;
-import java.lang.Integer;
+// import java.lang.Integer; => comentei aqui só porque comentei lá embaixo onde usou
 
+/* Deveria ser uma classe abstrata, porque queremos apenas instanciar
+ * as classes filhas (ou a conta é CC ou CP, mas nunca "genérica")
+*/ 
 public class Conta {
     private String numero;
     private Cliente cliente;
@@ -50,6 +53,11 @@ public class Conta {
         this.estadoConta = estadoConta;
     }
 
+    /* Faltou um método abstrato para
+     * cobrar a mensalidade de acordo
+     * com o tipo de conta
+    */
+
     //Método depositar
     public void depositar(double valor){
         this.saldo += valor;
@@ -75,17 +83,22 @@ public class Conta {
     }
 
     //Abrir conta
+    /* Este método poderia ser abstrato e ser
+     * implementado nas classes filhas pelo
+     * pilar do polimorfismo de sobreposição
+    */
     public boolean abrirContaCorre(double saldo){
         double valorCC = 20.00;
         double valorCP = 100.00;
-    if(tipoConta == "Conta Corrente".intern()){
-        if(Integer.compare(this.saldo, valorCC)) {
-            estadoConta = true;
-        }else{
-            estadoConta = 
-        }
+        if(tipoConta == "Conta Corrente".intern()){
+            //if(Integer.compare(this.saldo, valorCC)) {
+            //    estadoConta = true;
+            //}else{
+            //    estadoConta = 
+            //} => Comentei aqui tudo só para tirar os erros porque ficou pendente...
 
-    }
+        }
+        return true; // Completei aqui com qualquer valor só pra tirar os erros...
     }
 
     
